@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deshollinador Granulado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Deshollinador Granulado | EpySur</title>
   <meta name="description" content="Bienvenido a EpySur SPA. Ofrecemos un nuevo e innovador producto en Chile. Contáctanos y conoce más de nuestro Deshollinador Granulado.">
   <meta name="keywords" content="deshollinador, emprendimiento, Chile, servicios, productos, limpieza de chimeneas">
   <meta name="author" content="epysur.cl">
@@ -296,40 +296,6 @@
       color: var(--gray);
     }
     
-    /* Services */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    
-    .service-card {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      text-align: center;
-    }
-    
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    
-    .service-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      margin: 0 auto 20px;
-    }
-    
     /* Product Section */
     .product-section {
       background: var(--accent);
@@ -381,29 +347,37 @@
       margin-bottom: 15px;
     }
     
-    .video-container {
-      text-align: center;
-      margin: 50px 0;
+    /* --- ESTILOS VIDEO VERTICAL + CARRUSEL DE IMÁGENES VERTICALES --- */
+    .video-gallery-container {
+      margin-top: 50px;
+      background: rgba(0,0,0,0.02);
+      border-radius: 20px;
+      padding: 20px 10px;
     }
     
     .video-title {
       color: var(--secondary);
       margin-bottom: 20px;
       font-size: 1.8rem;
+      text-align: center;
     }
     
+    /* Contenedor para video vertical - estilo "reel" */
     .product-video {
-      max-width: 800px;
-      margin: 0 auto;
-      border-radius: 10px;
+      max-width: 380px;        /* Ancho reducido para respetar formato vertical */
+      margin: 0 auto 20px auto;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+      background: #000;
     }
     
     .product-video video {
       width: 100%;
       height: auto;
       display: block;
+      aspect-ratio: 9 / 16;   /* Proporción vertical 9:16 (típico de videos verticales) */
+      object-fit: cover;
     }
     
     .video-description {
@@ -411,9 +385,123 @@
       margin-top: 15px;
       font-style: italic;
       color: #555;
+      margin-bottom: 20px;
     }
     
-    /* Applications */
+    /* Carrusel adaptado para imágenes verticales */
+    .carousel-section {
+      margin: 25px auto 20px;
+      max-width: 550px;  /* Ancho contenido para realzar verticales */
+    }
+    
+    .carousel-title {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    
+    .carousel-title i {
+      color: var(--primary);
+    }
+    
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      background: #1e1e2f;
+    }
+    
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+    
+    .carousel-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f8f9fc;
+    }
+    
+    /* IMAGEN VERTICAL: se muestra con altura fija y object-fit: contain para respetar proporción */
+    .carousel-slide img {
+      width: auto;
+      max-width: 100%;
+      height: 480px;           
+      object-fit: contain;     
+      display: block;
+      margin: 0 auto;
+      background: #f1f2f6;
+    }
+    
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 10;
+      backdrop-filter: blur(2px);
+    }
+    
+    .carousel-btn:hover {
+      background: var(--primary);
+      transform: translateY(-50%) scale(1.05);
+    }
+    
+    .btn-prev {
+      left: 15px;
+    }
+    
+    .btn-next {
+      right: 15px;
+    }
+    
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: #cbd5e1;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    
+    .dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+      box-shadow: 0 0 5px var(--primary);
+    }
+    
+    /* Aplicaciones */
     .applications-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -435,8 +523,9 @@
     
     .application-image {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
+      object-position: center;
     }
     
     .application-info {
@@ -551,28 +640,6 @@
     .footer-links a:hover {
       color: var(--primary);
       transform: translateX(5px);
-    }
-    
-    .footer-links i {
-      font-size: 14px;
-    }
-    
-    .footer-newsletter p {
-      margin-bottom: 20px;
-      opacity: 0.8;
-    }
-    
-    .newsletter-form {
-      display: flex;
-      gap: 10px;
-    }
-    
-    .newsletter-input {
-      flex: 1;
-      padding: 12px 15px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
     }
     
     .social-links {
@@ -693,20 +760,15 @@
       font-size: 24px;
     }
     
-    /* Responsive */
+    /* Responsive para mejorar visual en móvil y verticales */
     @media (max-width: 992px) {
-      .about-content,
-      .product-container {
+      .about-content, .product-container {
         grid-template-columns: 1fr;
       }
-      
-      .hero h1 {
-        font-size: 2.8rem;
-      }
-      
-      .contact-options {
-        grid-template-columns: 1fr;
-      }
+      .hero h1 { font-size: 2.8rem; }
+      .contact-options { grid-template-columns: 1fr; }
+      .carousel-slide img { height: 420px; }
+      .carousel-section { max-width: 480px; }
     }
     
     @media (max-width: 768px) {
@@ -722,91 +784,48 @@
         box-shadow: var(--shadow);
         transition: 0.5s;
       }
-      
-      .menu.active {
-        left: 0;
-      }
-      
-      .menu li {
-        margin: 15px 0;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-      
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .hero h1 {
-        font-size: 2.3rem;
-      }
-      
-      .hero p {
-        font-size: 1.1rem;
-      }
-      
-      .section-title h2 {
-        font-size: 2rem;
-      }
-      
-      .scroll-top {
-        bottom: 90px;
-        right: 20px;
-      }
-      
-      .whatsapp-float {
-        bottom: 20px;
-        left: 20px;
-      }
+      .menu.active { left: 0; }
+      .menu li { margin: 15px 0; }
+      .mobile-menu-btn { display: block; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .hero h1 { font-size: 2.3rem; }
+      .hero p { font-size: 1.1rem; }
+      .section-title h2 { font-size: 2rem; }
+      .carousel-slide img { height: 380px; }
+      .carousel-section { max-width: 95%; }
+      .carousel-btn { width: 36px; height: 36px; font-size: 1.2rem; }
+      .product-video { max-width: 320px; }
     }
     
-    /* Animations */
+    @media (max-width: 550px) {
+      .carousel-slide img { height: 340px; }
+      .product-video { max-width: 280px; }
+    }
+    
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
-    .fade-in {
-      animation: fadeIn 1s ease forwards;
-    }
+    .fade-in { animation: fadeIn 1s ease forwards; }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container">
       <nav>
         <div class="logo-container">
           <img src="logo.jpg" alt="Logo EpySur" class="logo-img">
-          <div class="logo-text">
-            <i class="fas fa-fire"></i>
-            <span>EpySur</span>
-          </div>
+          <div class="logo-text"><i class="fas fa-fire"></i><span>EpySur</span></div>
         </div>
         <ul class="menu">
-          <li><a href="#home">Inicio</a></li>
-          <li><a href="#producto">Producto</a></li>
-          <li><a href="#about">Nosotros</a></li>
-          <li><a href="#applications">Aplicaciones</a></li>
-          <li><a href="#contact">Contacto</a></li>
+          <li><a href="#home">Inicio</a></li><li><a href="#producto">Producto</a></li><li><a href="#about">Nosotros</a></li>
+          <li><a href="#applications">Aplicaciones</a></li><li><a href="#contact">Contacto</a></li>
         </ul>
-        <button class="mobile-menu-btn">
-          <i class="fas fa-bars"></i>
-        </button>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container">
       <h1>EpySur - Tu Calor Más Seguro</h1>
@@ -818,335 +837,214 @@
     </div>
   </section>
 
-  <!-- Features Section -->
   <section class="section">
     <div class="container">
-      <div class="section-title">
-        <h2>Por Qué Elegirnos</h2>
-      </div>
+      <div class="section-title"><h2>Por Qué Elegirnos</h2></div>
       <div class="features">
-        <div class="feature-card fade-in">
-          <div class="feature-icon">
-            <i class="fas fa-broom"></i>
-          </div>
-          <h3>Limpieza Profunda</h3>
-          <p>Disminuye eficazmente el hollín y la creosota de tus sistemas de calefacción.</p>
-        </div>
-        <div class="feature-card fade-in">
-          <div class="feature-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3>Mayor Seguridad</h3>
-          <p>Reduce el riesgo de incendios en chimeneas y estufas obstruidas.</p>
-        </div>
-        <div class="feature-card fade-in">
-          <div class="feature-icon">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3>Mejor Rendimiento</h3>
-          <p>Optimiza el funcionamiento de tus equipos de calefacción.</p>
-        </div>
+        <div class="feature-card fade-in"><div class="feature-icon"><i class="fas fa-broom"></i></div><h3>Limpieza Profunda</h3><p>Disminuye eficazmente el hollín y la creosota de tus sistemas de calefacción.</p></div>
+        <div class="feature-card fade-in"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Mayor Seguridad</h3><p>Reduce el riesgo de incendios en chimeneas y estufas obstruidas.</p></div>
+        <div class="feature-card fade-in"><div class="feature-icon"><i class="fas fa-bolt"></i></div><h3>Mejor Rendimiento</h3><p>Optimiza el funcionamiento de tus equipos de calefacción.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Product Section -->
   <section class="product-section" id="producto">
     <div class="container">
-      <div class="section-title">
-        <h2>Nuestro Producto</h2>
-      </div>
+      <div class="section-title"><h2>Nuestro Producto</h2></div>
       <div class="product-container">
-        <div class="product-image-container">
-          <img src="estufa.jpg" alt="Deshollinador Granulado EpySur">
-        </div>
+        <div class="product-image-container"><img src="estufa.jpg" alt="Deshollinador Granulado EpySur"></div>
         <div class="product-info">
           <h2>Deshollinador Granulado</h2>
           <p>Producto de alta calidad para limpieza eficiente y segura de estufas de combustión lenta, cocinas a leña, chimeneas y calderas. Fácil de usar y altamente efectivo.</p>
           <p>Su fórmula especializada disminuye los depósitos de hollín y creosota que se acumulan con el uso, reduciendo el riesgo de incendio y mejorando la eficiencia de tus artefactos de calefacción.</p>
           <button class="btn" onclick="openModal('productModal')">Más información</button>
-          
           <div class="benefits-grid">
-            <div class="benefit-item">
-              <div class="benefit-icon">⏱️</div>
-              <h4>Fácil aplicación</h4>
-              <p>Simplemente agregue el producto al fuego</p>
-            </div>
-            <div class="benefit-item">
-              <div class="benefit-icon">💰</div>
-              <h4>Económico</h4>
-              <p>Disminuye las costosas limpiezas manuales</p>
-            </div>
-            <div class="benefit-item">
-              <div class="benefit-icon">🛡️</div>
-              <h4>Preventivo</h4>
-              <p>Reduce riesgos de incendios</p>
-            </div>
-            <div class="benefit-item">
-              <div class="benefit-icon">🌿</div>
-              <h4>Eficiencia energética</h4>
-              <p>Mejora el rendimiento</p>
-            </div>
+            <div class="benefit-item"><div class="benefit-icon">⏱️</div><h4>Fácil aplicación</h4><p>Simplemente agregue el producto al fuego</p></div>
+            <div class="benefit-item"><div class="benefit-icon">💰</div><h4>Económico</h4><p>Disminuye las costosas limpiezas manuales</p></div>
+            <div class="benefit-item"><div class="benefit-icon">🛡️</div><h4>Preventivo</h4><p>Reduce riesgos de incendios</p></div>
+            <div class="benefit-item"><div class="benefit-icon">🌿</div><h4>Eficiencia energética</h4><p>Mejora el rendimiento</p></div>
           </div>
         </div>
       </div>
       
-      <div class="video-container">
+      <!-- VIDEO (FORMATO VERTICAL 9:16) + CARRUSEL DE IMÁGENES VERTICALES -->
+      <div class="video-gallery-container">
         <h3 class="video-title">Vea nuestro Deshollinador granulado en acción</h3>
         <div class="product-video">
-          <video controls poster="estufa.jpg">
+          <video controls poster="estufa.jpg" playsinline>
             <source src="estufa.mp4" type="video/mp4">
             Tu navegador no soporta el elemento de video.
           </video>
         </div>
-        <p class="video-description">Video demostrativo de la efectividad de nuestro producto</p>
+        <p class="video-description">Video demostrativo: fácil aplicación y resultados visibles</p>
+        
+        <!-- CARRUSEL DE IMÁGENES (optimizado para fotos verticales) -->
+        <div class="carousel-section">
+          <div class="carousel-title">
+            <i class="fas fa-images"></i> <span>Galería de imágenes</span> <i class="fas fa-camera"></i>
+          </div>
+          <div class="carousel-container">
+            <button class="carousel-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-slide"><img src="estufa-leña.jpg" alt="Estufa a leña - limpieza efectiva"></div>
+              <div class="carousel-slide"><img src="cocina-leña.jpg" alt="Cocina a leña tradicional"></div>
+              <div class="carousel-slide"><img src="chimenea.jpg" alt="Chimenea cálida y segura"></div>
+              <div class="carousel-slide"><img src="caldera.jpg" alt="Caldera de calefacción mejor rendimiento"></div>
+              <div class="carousel-slide"><img src="estufa.jpg" alt="Aplicación en estufa moderna"></div>
+            </div>
+            <button class="carousel-btn btn-next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Applications Section -->
   <section class="section" id="applications">
     <div class="container">
-      <div class="section-title">
-        <h2>Aplicaciones</h2>
-      </div>
+      <div class="section-title"><h2>Aplicaciones</h2></div>
       <div class="applications-grid">
-        <div class="application-item fade-in">
-          <img src="estufa-leña.jpg" alt="Estufa a leña" class="application-image">
-          <div class="application-info">
-            <h3>Estufas a Leña</h3>
-            <p>Limpieza eficaz para todo tipo de artefactos de calefacción</p>
-          </div>
-        </div>
-        <div class="application-item fade-in">
-          <img src="cocina-leña.jpg" alt="Cocina a leña" class="application-image">
-          <div class="application-info">
-            <h3>Cocinas a Leña</h3>
-            <p>Mantenga su cocina funcionando optimalmente</p>
-          </div>
-        </div>
-        <div class="application-item fade-in">
-          <img src="chimenea.jpg" alt="Chimenea" class="application-image">
-          <div class="application-info">
-            <h3>Chimeneas</h3>
-            <p>Disminuya la posibilidad de incendios de sus chimeneas</p>
-          </div>
-        </div>
-        <div class="application-item fade-in">
-          <img src="caldera.jpg" alt="Caldera" class="application-image">
-          <div class="application-info">
-            <h3>Calderas</h3>
-            <p>Mejore la eficiencia de sus sistemas de calefacción</p>
-          </div>
-        </div>
+        <div class="application-item fade-in"><img src="estufa-leña.jpg" alt="Estufa a leña" class="application-image"><div class="application-info"><h3>Estufas a Leña</h3><p>Limpieza eficaz para todo tipo de artefactos de calefacción</p></div></div>
+        <div class="application-item fade-in"><img src="cocina-leña.jpg" alt="Cocina a leña" class="application-image"><div class="application-info"><h3>Cocinas a Leña</h3><p>Mantenga su cocina funcionando optimalmente</p></div></div>
+        <div class="application-item fade-in"><img src="chimenea.jpg" alt="Chimenea" class="application-image"><div class="application-info"><h3>Chimeneas</h3><p>Disminuya la posibilidad de incendios de sus chimeneas</p></div></div>
+        <div class="application-item fade-in"><img src="caldera.jpg" alt="Caldera" class="application-image"><div class="application-info"><h3>Calderas</h3><p>Mejore la eficiencia de sus sistemas de calefacción</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
   <section class="section about" id="about">
     <div class="container">
-      <div class="section-title">
-        <h2>Sobre Nosotros</h2>
-      </div>
+      <div class="section-title"><h2>Sobre Nosotros</h2></div>
       <div class="about-content">
-        <div class="about-image">
-          <img src="equipo.jpg" alt="El equipo de EpySur">
-        </div>
-        <div class="about-text">
-          <p>En EpySur trabajamos con compromiso, calidad y cercanía para entregar la mejor experiencia a nuestros clientes. Nuestra empresa nace de la necesidad de ofrecer una solución eficiente y segura para la limpieza y mantención de sistemas de calefacción en los hogares del sur de Chile.</p>
-          <p>Nuestro Deshollinador Granulado es un producto innovador que simplifica el mantenimiento de estufas de combustión lenta, cocinas a leña, chimeneas y calderas, mejorando su rendimiento, alargando su vida útil y reduciendo el riesgo de incendios.</p>
-          <p>🔥 Confía en EpySur. 🔥</p>
-          <a href="#contact" class="btn">Contáctanos</a>
-        </div>
+        <div class="about-image"><img src="equipo.jpg" alt="El equipo de EpySur"></div>
+        <div class="about-text"><p>En EpySur trabajamos con compromiso, calidad y cercanía para entregar la mejor experiencia a nuestros clientes. Nuestra empresa nace de la necesidad de ofrecer una solución eficiente y segura para la limpieza y mantención de sistemas de calefacción en los hogares del sur de Chile.</p><p>Nuestro Deshollinador Granulado es un producto innovador que simplifica el mantenimiento de estufas de combustión lenta, cocinas a leña, chimeneas y calderas, mejorando su rendimiento, alargando su vida útil y reduciendo el riesgo de incendios.</p><p>🔥 Confía en EpySur. 🔥</p><a href="#contact" class="btn">Contáctanos</a></div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section class="section contact" id="contact">
     <div class="container">
-      <div class="section-title">
-        <h2>Contáctanos</h2>
-        <p>Estamos aquí para responder todas tus preguntas sobre nuestro producto</p>
-      </div>
-      
+      <div class="section-title"><h2>Contáctanos</h2><p>Estamos aquí para responder todas tus preguntas sobre nuestro producto</p></div>
       <div class="contact-options">
-        <div class="contact-option whatsapp">
-          <div class="contact-option-icon">
-            <i class="fab fa-whatsapp"></i>
-          </div>
-          <h3>WhatsApp</h3>
-          <p>Contáctanos directamente por WhatsApp para una respuesta rápida</p>
-          <a href="https://wa.me/56951885355?text=Hola,%20me%20interesa%20el%20deshollinador%20granulado%20de%20EpySur" class="btn" target="_blank">Escribir por WhatsApp</a>
-        </div>
-        
-        <div class="contact-option email">
-          <div class="contact-option-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <h3>Correo Electrónico</h3>
-          <p>Envíanos un correo directo para consultas o pedidos</p>
-          <a href="mailto:joaquin.rojas@epysur.cl" class="btn">Enviar correo</a>
-        </div>
-        
-        <div class="contact-option phone">
-          <div class="contact-option-icon">
-            <i class="fas fa-phone"></i>
-          </div>
-          <h3>Llamada Telefónica</h3>
-          <p>Llámanos directamente para consultas inmediatas</p>
-          <a href="tel:+56951885355" class="btn">Llamar ahora</a>
-        </div>
+        <div class="contact-option whatsapp"><div class="contact-option-icon"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp</h3><p>Contáctanos directamente por WhatsApp para una respuesta rápida</p><a href="https://wa.me/56951885355?text=Hola,%20me%20interesa%20el%20deshollinador%20granulado%20de%20EpySur" class="btn" target="_blank">Escribir por WhatsApp</a></div>
+        <div class="contact-option email"><div class="contact-option-icon"><i class="fas fa-envelope"></i></div><h3>Correo Electrónico</h3><p>Envíanos un correo directo para consultas o pedidos</p><a href="mailto:joaquin.rojas@epysur.cl" class="btn">Enviar correo</a></div>
+        <div class="contact-option phone"><div class="contact-option-icon"><i class="fas fa-phone"></i></div><h3>Llamada Telefónica</h3><p>Llámanos directamente para consultas inmediatas</p><a href="tel:+56951885355" class="btn">Llamar ahora</a></div>
       </div>
-      
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.7960926765156!2d-72.9615267!3d-40.3364967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9616427013539671%3A0x10fa9031fb7c428!2sBernardo%20O'Higgins%20906%2C%20R%C3%ADo%20Bueno%2C%20Los%20R%C3%ADos!5e0!3m2!1ses-419!2scl!4v1694123456789!5m2!1ses-419!2scl"class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+      <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.7960926765156!2d-72.9615267!3d-40.3364967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9616427013539671%3A0x10fa9031fb7c428!2sBernardo%20O'Higgins%20906%2C%20R%C3%ADo%20Bueno%2C%20Los%20R%C3%ADos!5e0!3m2!1ses-419!2scl!4v1694123456789!5m2!1ses-419!2scl" class="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-column">
-          <h3>EpySur</h3>
-          <p>Soluciones innovadoras para el mantenimiento de sistemas de calefacción en el sur de Chile.</p>
-          <div class="social-links">
-            <a href="https://www.facebook.com/share/1JiCALoQ1q/"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/epysur?igsh=MW5mc3NjZDFrNDNpYQ=="><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/56951885355?text=Hola,%20me%20interesa%20el%20deshollinador%20granulado%20de%20EpySur"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-        <div class="footer-column">
-          <h3>Enlaces Rápidos</h3>
-          <ul class="footer-links">
-            <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-            <li><a href="#producto"><i class="fas fa-chevron-right"></i> Producto</a></li>
-            <li><a href="#about"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
-            <li><a href="#applications"><i class="fas fa-chevron-right"></i> Aplicaciones</a></li>
-            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Productos</h3>
-          <ul class="footer-links">
-            <li><a href="#"><i class="fas fa-chevron-right"></i> Deshollinador Granulado</a></li>
-          </ul>
-        </div>
+        <div class="footer-column"><h3>EpySur</h3><p>Soluciones innovadoras para el mantenimiento de sistemas de calefacción en el sur de Chile.</p><div class="social-links"><a href="https://www.facebook.com/share/1JiCALoQ1q/"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/epysur?igsh=MW5mc3NjZDFrNDNpYQ=="><i class="fab fa-instagram"></i></a><a href="https://wa.me/56951885355"><i class="fab fa-whatsapp"></i></a></div></div>
+        <div class="footer-column"><h3>Enlaces Rápidos</h3><ul class="footer-links"><li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li><li><a href="#producto"><i class="fas fa-chevron-right"></i> Producto</a></li><li><a href="#about"><i class="fas fa-chevron-right"></i> Nosotros</a></li><li><a href="#applications"><i class="fas fa-chevron-right"></i> Aplicaciones</a></li><li><a href="#contact"><i class="fas fa-chevron-right"></i> Contacto</a></li></ul></div>
+        <div class="footer-column"><h3>Productos</h3><ul class="footer-links"><li><a href="#"><i class="fas fa-chevron-right"></i> Deshollinador Granulado</a></li></ul></div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 EpySur Spa. Todos los derechos reservados.</p>
-      </div>
+      <div class="footer-bottom"><p>&copy; 2025 EpySur Spa. Todos los derechos reservados.</p></div>
     </div>
   </footer>
 
-  <!-- Botón de WhatsApp -->
-  <a href="https://wa.me/56951885355?text=Hola,%20me%20interesa%20el%20deshollinador%20granulado%20de%20EpySur" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/56951885355?text=Hola,%20me%20interesa%20el%20deshollinador%20granulado%20de%20EpySur" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <div class="scroll-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></div>
 
-  <!-- Botón para volver arriba -->
-  <div class="scroll-top" onclick="scrollToTop()">
-    <i class="fas fa-arrow-up"></i>
-  </div>
-
-  <!-- Modal para producto -->
-  <div id="productModal" class="modal">
-    <div class="modal-content">
-      <button class="close-modal" onclick="closeModal('productModal')">&times;</button>
-      <h3>Deshollinador Granulado EpySur</h3>
-      <p>Nuestro producto revolucionario para el mantenimiento de sistemas de calefacción:</p>
-      <ul>
-        <li>Presentación     : Envase de 900 gramos.</li>
-        <li>Modo de uso      : Aplicar directamente al fuego encendido</li>
-        <li>Frecuencia       : 60 gramos (3 cucharadas soperas) cada 12 horas de uso</li>
-        <li>Efectos visibles : Desde la primera aplicación</li>
-      </ul>
-      <button class="btn" onclick="window.open('https://wa.me/56951885355?text=Quiero%20comprar%20el%20deshollinador%20granulado', '_blank')">Comprar ahora</button>
-    </div>
-  </div>
+  <div id="productModal" class="modal"><div class="modal-content"><button class="close-modal" onclick="closeModal('productModal')">&times;</button><h3>Deshollinador Granulado EpySur</h3><p>Nuestro producto revolucionario para el mantenimiento de sistemas de calefacción:</p><ul><li>Presentación: Envase de 900 gramos.</li><li>Modo de uso: Aplicar directamente al fuego encendido</li><li>Frecuencia: 60 gramos (3 cucharadas soperas) cada 12 horas de uso</li><li>Efectos visibles: Desde la primera aplicación</li></ul><button class="btn" onclick="window.open('https://wa.me/56951885355?text=Quiero%20comprar%20el%20deshollinador%20granulado', '_blank')">Comprar ahora</button></div></div>
 
   <script>
-    // Mobile Menu Toggle
+    // Mobile menu
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const menu = document.querySelector('.menu');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      menu.classList.toggle('active');
-      mobileMenuBtn.innerHTML = menu.classList.contains('active') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-    });
-    
-    // Close menu when clicking on a link
-    document.querySelectorAll('.menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    if(mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        mobileMenuBtn.innerHTML = menu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
       });
-    });
-    
-    // Newsletter form
-    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('¡Gracias por suscribirte a nuestro boletín!');
-      this.reset();
-    });
-    
-    // Animation on scroll
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animation = 'fadeIn 1s ease forwards';
-          observer.unobserve(entry.target);
-        }
+      document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('active');
+          if(mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
       });
-    }, {
-      threshold: 0.1
-    });
-    
-    fadeElements.forEach(element => {
-      observer.observe(element);
-    });
-    
-    // Botón para volver arriba
+    }
+    // scroll top button
     const scrollButton = document.querySelector('.scroll-top');
+    window.addEventListener('scroll', () => { if(window.pageYOffset > 300) scrollButton.classList.add('visible'); else scrollButton.classList.remove('visible'); });
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    // modal
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+    window.addEventListener('click', (e) => { document.querySelectorAll('.modal').forEach(m => { if(e.target === m) m.style.display = 'none'; }); });
     
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        scrollButton.classList.add('visible');
-      } else {
-        scrollButton.classList.remove('visible');
+    // ---- CARRUSEL para imágenes verticales y mixtas (object-fit: contain) ----
+    const track = document.getElementById('carouselTrack');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('carouselDots');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    
+    function createDots() {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if(i === currentIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
       }
-    });
+    }
     
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    function updateDots() {
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        if(idx === currentIndex) dot.classList.add('active');
+        else dot.classList.remove('active');
       });
     }
     
-    // Funcionalidad del modal
-    function openModal(modalId) {
-      document.getElementById(modalId).style.display = 'flex';
+    function goToSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+      currentIndex = index;
+      const movePercent = currentIndex * 100;
+      track.style.transform = `translateX(-${movePercent}%)`;
+      updateDots();
     }
     
-    function closeModal(modalId) {
-      document.getElementById(modalId).style.display = 'none';
+    function nextSlide() {
+      let newIndex = currentIndex + 1;
+      if (newIndex >= totalSlides) newIndex = 0;
+      goToSlide(newIndex);
     }
     
-    // Cerrar modal al hacer clic fuera del contenido
-    window.addEventListener('click', (e) => {
-      document.querySelectorAll('.modal').forEach(modal => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-        }
-      });
-    });
+    function prevSlide() {
+      let newIndex = currentIndex - 1;
+      if (newIndex < 0) newIndex = totalSlides - 1;
+      goToSlide(newIndex);
+    }
+    
+    if(track && slides.length) {
+      createDots();
+      track.style.transform = 'translateX(0%)';
+      if(prevBtn) prevBtn.addEventListener('click', prevSlide);
+      if(nextBtn) nextBtn.addEventListener('click', nextSlide);
+      
+      let autoInterval = setInterval(() => { nextSlide(); }, 5500);
+      const carouselContainer = document.querySelector('.carousel-container');
+      if(carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', () => clearInterval(autoInterval));
+        carouselContainer.addEventListener('mouseleave', () => { autoInterval = setInterval(() => { nextSlide(); }, 5500); });
+      }
+    }
+    
+    // Fade-in observer
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if(entry.isIntersecting) { entry.target.style.animation = 'fadeIn 1s ease forwards'; observer.unobserve(entry.target); } });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
+```
